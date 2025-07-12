@@ -15,6 +15,7 @@
         <module>FacadeBank</module>
         <module>RuleEngine</module>
         <module>MultiBeanQualification</module>
+        <module>RestTraining</module>
     </modules>
 
     <parent>
