@@ -1,0 +1,5 @@
+my:
+  custom:
+    property:
+      key: "Property for custom values"
+      name: "This is property name"
