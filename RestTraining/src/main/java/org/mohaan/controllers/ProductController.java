@@ -19,6 +19,21 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+    @GetMapping("/products/{productId}/stock")
+    public boolean checkIfStockAvailable(
+            @PathVariable("productId") Integer productId,
+            @RequestParam(value = "quantity") Integer quantity
+    ) {
+        return productService.checkIfStockAvailable(productId, quantity);
+    }
+
+    @GetMapping("/products/{productId}")
+    public ProductInformation getProductById(
+            @PathVariable("productId") Integer productId
+    ) {
+        return productService.getProductById(productId);
+    }
+
     @PostMapping("/products")
     @ResponseStatus(HttpStatus.CREATED)
     public ProductInformation createProduct(
