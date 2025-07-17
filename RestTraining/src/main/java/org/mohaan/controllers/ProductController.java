@@ -41,4 +41,19 @@ public class ProductController {
     ) {
         return productService.addProduct(productInformation);
     }
+
+    @PostMapping("/products/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<ProductInformation> createProducts(
+            @RequestBody List<ProductInformation> productInformations
+    ) {
+        return productService.addProduct(productInformations);
+    }
+
+    @GetMapping("/products/search/{searchTerm}")
+    public List<ProductInformation> findProductByDescription(
+            @PathVariable("searchTerm") String searchTerm
+    ) {
+        return productService.getAllProductsByDescription(searchTerm);
+    }
 }

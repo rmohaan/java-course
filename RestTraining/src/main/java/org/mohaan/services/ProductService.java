@@ -46,6 +46,17 @@ public class ProductService {
         return productMapper.toModel(savedEntity);
     }
 
+    public List<ProductInformation> addProduct(List<ProductInformation> productInformations) {
+        var addedEntities = productInformations.stream()
+                .map(productMapper::toEntity)
+                .map(productRepository::save)
+                .toList();
+
+        return addedEntities.stream()
+                .map(productMapper::toModel)
+                .toList();
+    }
+
     public ProductInformation getProductById(Integer productId) {
         return productRepository.findById(productId)
                 .map(productMapper::toModel)
@@ -57,5 +68,12 @@ public class ProductService {
                 .map(productMapper::toModel)
                 .filter(productInfo -> productInfo.getQuantity() >= quantity)
                 .isPresent();
+    }
+
+    public List<ProductInformation> getAllProductsByDescription(String descriptionSearchTerm) {
+        return productRepository.findAllByDescriptionContaining(descriptionSearchTerm)
+                .stream()
+                .map(productMapper::toModel)
+                .toList();
     }
 }
