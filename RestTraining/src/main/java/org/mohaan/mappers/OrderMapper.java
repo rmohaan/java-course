@@ -5,7 +5,7 @@ import org.mapstruct.Mapping;
 import org.mohaan.entities.Orders;
 import org.mohaan.models.OrderInformation;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = ProductMapper.class)
 public interface OrderMapper {
     @Mapping(source = "products", target = "products")
     @Mapping(source = "totalPrice", target = "totalPrice")

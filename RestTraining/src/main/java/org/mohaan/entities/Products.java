@@ -19,9 +19,11 @@ public class Products {
     private String description;
     private Integer quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "orders_id")
-    private Orders order;
+    @ManyToMany(
+            mappedBy = "products"
+    )
+    @JsonBackReference
+    private List<Orders> order;
 
     public Products(String name, String description, Integer quantity) {
         this.name = name;

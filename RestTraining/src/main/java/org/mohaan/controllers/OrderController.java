@@ -1,11 +1,14 @@
 package org.mohaan.controllers;
 
+import jakarta.validation.Valid;
 import org.mohaan.models.OrderInformation;
 import org.mohaan.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class OrderController {
@@ -15,7 +18,7 @@ public class OrderController {
 
     @PostMapping("/orders")
     public OrderInformation createOrder(
-            @RequestBody OrderInformation order
+           @Valid @RequestBody OrderInformation order
     ) {
         // Validate the order details
         if (order.getProducts().isEmpty()) {
@@ -24,5 +27,10 @@ public class OrderController {
 
         // Save the order to the repository
         return orderService.createOrder(order);
+    }
+
+    @GetMapping("/orders")
+    public List<OrderInformation> getOrders() {
+        return orderService.getOrders();
     }
 }
