@@ -11,11 +11,11 @@ public class Main {
     public static void main(String[] args) {
         var ctx = SpringApplication.run(Main.class, args);
 
-        Author author = new Author("Mohaan", "Raja");
+        //Author author = new Author("Mohaan", "Raja");
         var env = ctx.getBean(EnvironmentService.class);
-        System.out.println(env.getNameProperty());
-        System.out.println(env.getCustomProperty());
-        System.out.println(env.getJavaVersion());
-        System.out.println(author.getPenName());
+//        System.out.println(env.getNameProperty());
+//        System.out.println(env.getCustomProperty());
+//        System.out.println(env.getJavaVersion());
+//        System.out.println(author.getPenName());
     }
 }

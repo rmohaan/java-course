@@ -1,7 +1,7 @@
 package org.mohaan.controllers;
 
 import org.mohaan.models.ProductInformation;
-import org.mohaan.services.ProductService;
+import org.mohaan.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

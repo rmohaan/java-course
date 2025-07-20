@@ -1,6 +1,5 @@
-package org.mohaan.services;
+package org.mohaan.service;
 
-import org.mohaan.entities.Orders;
 import org.mohaan.entities.Products;
 import org.mohaan.mappers.OrderMapper;
 import org.mohaan.mappers.ProductMapper;
@@ -10,7 +9,6 @@ import org.mohaan.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service

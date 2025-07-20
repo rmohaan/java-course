@@ -1,6 +1,5 @@
-package org.mohaan.services;
+package org.mohaan.service;
 
-import jakarta.annotation.PostConstruct;
 import org.mohaan.mappers.ProductMapper;
 import org.mohaan.models.ProductInformation;
 import org.mohaan.repositories.ProductRepository;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class ProductService {

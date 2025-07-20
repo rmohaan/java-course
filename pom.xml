@@ -16,6 +16,7 @@
         <module>RuleEngine</module>
         <module>MultiBeanQualification</module>
         <module>RestTraining</module>
+        <module>jpadata</module>
     </modules>
 
     <parent>
