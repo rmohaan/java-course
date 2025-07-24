@@ -2,14 +2,14 @@ package org.mohaan.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table (
         name = "authors",
@@ -18,12 +18,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Author {
+@SuperBuilder
+public class Author extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     private String firstName;
     private String lastName;
     @Column(
@@ -34,17 +31,6 @@ public class Author {
     private String email;
     private Integer age;
 
-    @Column(
-            updatable=false,
-            nullable = false
-    )
-    private LocalDateTime createdAt;
-
-    @Column (
-            insertable = false
-    )
-    private LocalDateTime updatedAt;
-
     @ManyToMany(mappedBy = "authors")
     private List<Course> courses;
 
@@ -54,12 +40,4 @@ public class Author {
         this.email = email;
         this.age = age;
     }
-
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
-    }
-
-
-
 }

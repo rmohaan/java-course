@@ -1,22 +1,19 @@
 package org.mohaan.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table (name= "courses", schema = "tutorials")
 @Data
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Course {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Course extends BaseEntity {
     private String name;
     private String description;
 
