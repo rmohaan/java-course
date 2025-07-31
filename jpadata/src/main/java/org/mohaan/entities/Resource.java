@@ -4,19 +4,19 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "lectures",  schema = "tutorials")
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Resource extends BaseEntity {
-
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "resource_type", discriminatorType = DiscriminatorType.STRING)
+public class Resource  {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
-    private String type;
-    private String url;
-    private Integer size;
 
     @OneToOne
     @JoinColumn(name = "lecture_id")

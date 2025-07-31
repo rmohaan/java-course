@@ -10,15 +10,9 @@ public interface ResourceMapper {
 
     @Mapping(target = "id", source = "id")
     @Mapping(target = "name", source = "name")
-    @Mapping(target = "url", source = "url")
-    @Mapping(target = "type", source = "type")
-    @Mapping(target = "size", source = "size")
     Resource toEntity(ResourceDto resourceDto);
 
     @Mapping(target = "id", source = "id")
     @Mapping(target = "name", source = "name")
-    @Mapping(target = "url", source = "url")
-    @Mapping(target = "type", source = "type")
-    @Mapping(target = "size", source = "size")
     ResourceDto toModel(Resource resource);
 }

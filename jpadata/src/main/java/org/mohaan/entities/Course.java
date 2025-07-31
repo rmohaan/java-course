@@ -1,5 +1,7 @@
 package org.mohaan.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -27,6 +29,7 @@ public class Course extends BaseEntity {
                     @JoinColumn(name = "author_id")
             }
     )
+    @JsonBackReference
     private List<Author> authors;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
