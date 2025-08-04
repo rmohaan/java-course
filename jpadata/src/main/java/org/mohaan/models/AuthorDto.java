@@ -1,10 +1,10 @@
 package org.mohaan.models;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.mohaan.entities.Course;
+import org.mohaan.entities.embedded.Address;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,4 +20,5 @@ public class AuthorDto {
     private String email;
     private Integer age;
     private List<Course> courses;
+    private Address address;
 }

@@ -1,6 +1,7 @@
 package org.mohaan;
 
 import org.mohaan.entities.Author;
+import org.mohaan.entities.embedded.Address;
 import org.mohaan.repositories.AuthorRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -24,6 +25,15 @@ public class Main {
                     .lastName("Doe")
                     .email("john.doe@gmail.com")
                     .age(30)
+                    .address(
+                            Address.builder()
+                                    .street("Kambar Street")
+                                    .city("Valluvan Illam")
+                                    .state("Tamil Nadu")
+                                    .zipCode("627001")
+                                    .country("India")
+                                    .build()
+                    )
                     .createdAt(LocalDateTime.now())
                     .build();
             authorRepository.save(author);

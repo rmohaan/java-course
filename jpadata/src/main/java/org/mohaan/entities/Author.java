@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.mohaan.entities.embedded.Address;
 
 import java.util.List;
 
@@ -42,4 +43,7 @@ public class Author extends BaseEntity {
         this.email = email;
         this.age = age;
     }
+
+    @Embedded
+    private Address address;
 }
