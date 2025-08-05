@@ -36,8 +36,22 @@ public class CourseService {
                 .toList();
     }
 
-    public CourseDto updateCourse(CourseDto course) {
-        var updateEntity = courseRepository.save(courseMapper.toEntity(course));
-        return courseMapper.toModel(updateEntity);
+    public CourseDto updateCourse(CourseDto courseModel, Integer id) {
+        var course = courseMapper.toEntity(courseModel);
+        var success = courseRepository.updateCourseById(course.getName(), course.getDescription(), id);
+        if (success == 1) {
+            var updatedCourse= courseRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Course not found with id: " + id));
+            return  courseMapper.toModel(updatedCourse);
+        }
+        return null;
+    }
+
+    public CourseDto updateCourseAuthors(CourseDto courseModel, Integer id) {
+        var course = courseRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Course not found with id: " + id));
+        course.setAuthors(courseModel.getAuthors());
+        var updatedCourse = courseRepository.save(course);
+        return courseMapper.toModel(updatedCourse);
     }
 }

@@ -20,9 +20,14 @@ public class CourseController {
         return courseService.addCourse(course);
     }
 
-    @PatchMapping("/")
-    public CourseDto updateCourse(@RequestBody CourseDto course) {
-        return courseService.updateCourse(course);
+    @PatchMapping("/{id}")
+    public CourseDto updateCourse(@RequestBody CourseDto course, @PathVariable Integer id) {
+        return courseService.updateCourse(course, id);
+    }
+
+    @PatchMapping("/{id}/authors")
+    public CourseDto updateCourseAuthors(@RequestBody CourseDto course, @PathVariable Integer id) {
+        return courseService.updateCourseAuthors(course, id);
     }
 
     @GetMapping("/")

@@ -22,6 +22,7 @@ public class Course extends BaseEntity {
     @ManyToMany
     @JoinTable(
             name="authors_courses",
+            schema = "tutorials",
             joinColumns = {
                     @JoinColumn(name = "course_id")
             },
