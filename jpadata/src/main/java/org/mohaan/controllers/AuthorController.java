@@ -37,4 +37,11 @@ public class AuthorController {
         return authorService.createAuthor(author);
     }
 
+    @GetMapping
+    public AuthorDto getAuthorByEmail(
+            @RequestParam String email
+    ) {
+        return authorService.getAuthorByEmail(email);
+    }
+
 }

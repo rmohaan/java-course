@@ -28,6 +28,11 @@ public class AuthorService {
                 .collect(Collectors.toList());
     }
 
+    public AuthorDto getAuthorByEmail(String email) {
+        var author = authorRepository.findByEmail(email);
+        return author != null ? authorMapper.toModel(author) : null;
+    }
+
     public AuthorDto createAuthor(AuthorDto authorDto) {
         var author = authorMapper.toEntity(authorDto);
         return authorMapper.toModel(

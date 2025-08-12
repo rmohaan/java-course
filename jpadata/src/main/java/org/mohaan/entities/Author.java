@@ -21,6 +21,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@NamedQueries(
+        {
+                @NamedQuery(
+                        name = "Author.findByEmail",
+                        query = "SELECT a FROM Author a WHERE a.email = :email"
+                )
+        }
+
+)
 public class Author extends BaseEntity {
 
     private String firstName;
