@@ -17,6 +17,7 @@
         <module>MultiBeanQualification</module>
         <module>RestTraining</module>
         <module>jpadata</module>
+        <module>resilienceSample</module>
     </modules>
 
     <parent>
