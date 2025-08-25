@@ -18,6 +18,7 @@
         <module>RestTraining</module>
         <module>jpadata</module>
         <module>resilienceSample</module>
+        <module>CompletableFuture</module>
     </modules>
 
     <parent>
